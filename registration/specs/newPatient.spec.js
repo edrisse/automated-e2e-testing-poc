@@ -4,56 +4,45 @@
 
 const LoginPage = require('../../home/pages/LoginPage');
 
-const PatientRegistrationIdentifierPage = require('../pages/PatientRegistrationIdentifierPage');
-const PatientRegistrationNamesPage = require('../pages/PatientRegistrationNamesPage');
-const PatientRegistrationGenderPage = require('../pages/PatientRegistrationGenderPage');
-const PatientRegistrationAgePage = require('../pages/PatientRegistrationAgePage');
-const PatientRegistrationAddressPage = require('../pages/PatientRegistrationAddressPage');
-const PatientRegistrationOtherPage = require('../pages/PatientRegistrationOtherPage');
-const PatientRegistrationConfirmationPage = require('../pages/PatientRegistrationConfirmationPage');
-
 describe('test new patient registration', () => {
     it('should create new patient', () => {
         const loginPage = new LoginPage();
         loginPage.visit();
-        loginPage.login('admin', 'eSaude123')
+
+
+        const identifierPage = loginPage
+            .login('admin', 'eSaude123')
             .visitRegistration()
             .visitNewPatient();
 
-        const identifierPage = new PatientRegistrationIdentifierPage();
         identifierPage.setIdentifier('11223344/11/12391');
-        identifierPage.visitNextStep();
-
-        const namesPage = new PatientRegistrationNamesPage();
+        
+        const namesPage = identifierPage.visitNextStep();
         namesPage.setGivenName("Hassam");
         namesPage.setSurname("Mussá");
         namesPage.setMiddlename("Adamo Sulemane");
-        namesPage.visitNextStep();
 
-        const genderPage = new PatientRegistrationGenderPage();
+        const genderPage = namesPage.visitNextStep();
         genderPage.selectMale();
-        genderPage.visitNextStep();
 
-        const agePage = new PatientRegistrationAgePage();
+        const agePage = genderPage.visitNextStep();
         agePage.setBirthdate('1973-10-07');
         agePage.setYears('40');
         agePage.setMonths('10');
         agePage.setDays('29');
-        agePage.visitNextStep();
 
-        const addressPage = new PatientRegistrationAddressPage();
+        const addressPage = agePage.visitNextStep();
         addressPage.setLocality('Matola Rio');
         addressPage.setDistrict('Boane');
         addressPage.setProvince('Maputo');
         addressPage.setCountry('Mocambique');
-        addressPage.visitNextStep();
 
-        const otherPage = new PatientRegistrationOtherPage();
+
+        const otherPage = addressPage.visitNextStep();
         otherPage.setPhone1('846179380');
         otherPage.setProvenience('PRIVATE PROVIDER');
-        otherPage.visitNextStep();
 
-        const confirmationPage = new PatientRegistrationConfirmationPage();
+        const confirmationPage = otherPage.visitNextStep();
         confirmationPage.confirm();
         browser.sleep(5002); // wait for notifier
         const searchPage = confirmationPage.visitHome().visitRegistration();

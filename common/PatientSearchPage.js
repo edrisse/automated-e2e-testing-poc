@@ -2,6 +2,8 @@
  * Created by edrisse on 9/6/17.
  */
 
+const PatientRegistrationIdentifierPage = require('../registration/pages/PatientRegistrationIdentifierPage');
+
 class PatientSearchPage {
 
     constructor() {
@@ -12,6 +14,7 @@ class PatientSearchPage {
     visitNewPatient() {
         browser.sleep(1000);
         this.newPatientButton.click();
+        return new PatientRegistrationIdentifierPage();
     }
 
     getPatientIdentifiers() {

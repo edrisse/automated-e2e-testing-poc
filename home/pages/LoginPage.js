@@ -16,13 +16,13 @@ class LoginPage {
         this.userNameField.sendKeys(userName);
         this.passwordField.sendKeys(password);
         this.loginButton.click();
-        browser.sleep(100); // wait for spinner
+        browser.sleep(500); // wait for spinner
         return new HomeDashboardPage();
     }
 
     visit() {
         browser.get('http://localhost:9000/home/index.html#/login');
-        browser.sleep(100); // wait for spinner
+        browser.sleep(500); // wait for spinner
     }
 
     getErrorMessage() {

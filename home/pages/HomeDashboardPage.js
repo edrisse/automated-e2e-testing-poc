@@ -2,8 +2,6 @@
  * Created by edrisse on 9/6/17.
  */
 
-const PatientSearchPage = require('../../common/PatientSearchPage');
-
 class HomeDashboardPage {
 
     constructor() {
@@ -23,3 +21,6 @@ class HomeDashboardPage {
 }
 
 module.exports = HomeDashboardPage;
+
+// Require here beacuse of circular dependency
+const PatientSearchPage = require('../../common/PatientSearchPage');

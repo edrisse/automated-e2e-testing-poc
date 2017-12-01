@@ -7,7 +7,7 @@ const HomeDashboardPage = require('../../home/pages/HomeDashboardPage');
 class PatientRegistrationConfirmationPage {
 
     constructor() {
-
+        console.log(HomeDashboardPage);
     }
 
     confirm() {
