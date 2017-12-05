@@ -18,18 +18,6 @@ class PatientRegistrationNamesPage {
         nextStepButton.click();
         return new PatientRegistrationGenderPage();
     }
-
-    setGivenName(givenName) {
-        this.givenNameField.sendKeys(givenName);
-    }
-
-    setSurname(surname) {
-        this.surnameNameField.sendKeys(surname);
-    }
-
-    setMiddlename(middlename) {
-        this.middleNameField.sendKeys(middlename);
-    }
 }
 
 module.exports = PatientRegistrationNamesPage;

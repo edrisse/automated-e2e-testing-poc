@@ -19,23 +19,6 @@ class PatientRegistrationAgePage {
         nextStepButton.click();
         return new PatientRegistrationAddressPage();
     }
-
-    setBirthdate(birthdate) {
-        this.birthDateField.sendKeys(birthdate);
-    }
-
-    setYears(years) {
-        this.yearsField.sendKeys(years);
-    }
-
-
-    setMonths(months) {
-        this.monthsField.sendKeys(months);
-    }
-
-    setDays(days) {
-        this.daysField.sendKeys(days);
-    }
 }
 
 module.exports = PatientRegistrationAgePage;

@@ -16,10 +16,6 @@ class PatientRegistrationIdentifierPage {
         nextStepButton.click();
         return new PatientRegistrationNamesPage();
     }
-
-    setIdentifier(identifier) {
-        this.identifierField.sendKeys(identifier);
-    }
 }
 
 module.exports = PatientRegistrationIdentifierPage;

@@ -15,38 +15,37 @@ describe('test new patient registration', () => {
             .visitRegistration()
             .visitNewPatient();
 
-        identifierPage.setIdentifier('11223344/11/12391');
-        
+        identifierPage.identifierField.sendKeys('11223344/11/12391');
+
         const namesPage = identifierPage.visitNextStep();
-        namesPage.setGivenName("Hassam");
-        namesPage.setSurname("Mussá");
-        namesPage.setMiddlename("Adamo Sulemane");
+        namesPage.givenNameField.sendKeys("Hassam");
+        namesPage.surnameNameField.sendKeys("Mussá");
+        namesPage.middleNameField.sendKeys("Adamo Sulemane");
 
         const genderPage = namesPage.visitNextStep();
-        genderPage.selectMale();
+        genderPage.genderMaleOption.click();
 
         const agePage = genderPage.visitNextStep();
-        agePage.setBirthdate('1973-10-07');
-        agePage.setYears('40');
-        agePage.setMonths('10');
-        agePage.setDays('29');
+        agePage.birthDateField.sendKeys('1973-10-07');
+        agePage.yearsField.sendKeys('40');
+        agePage.monthsField.sendKeys('10');
+        agePage.daysField.sendKeys('29');
 
         const addressPage = agePage.visitNextStep();
-        addressPage.setLocality('Matola Rio');
-        addressPage.setDistrict('Boane');
-        addressPage.setProvince('Maputo');
-        addressPage.setCountry('Mocambique');
-
+        addressPage.locality.sendKeys('Matola Rio');
+        addressPage.district.sendKeys('Boane');
+        addressPage.province.sendKeys('Maputo');
+        addressPage.country.sendKeys('Mocambique');
 
         const otherPage = addressPage.visitNextStep();
-        otherPage.setPhone1('846179380');
-        otherPage.setProvenience('PRIVATE PROVIDER');
+        otherPage.phone1.sendKeys('846179380');
+        otherPage.provenience.sendKeys('PRIVATE PROVIDER');
 
         const confirmationPage = otherPage.visitNextStep();
         confirmationPage.confirm();
         browser.sleep(5002); // wait for notifier
         const searchPage = confirmationPage.visitHome().visitRegistration();
-        searchPage.search('hassam');
+        searchPage.searchField.sendKeys('hassam');
 
         const patientIdentifiers = searchPage.getPatientIdentifiers();
         expect(patientIdentifiers.count()).toEqual(1);

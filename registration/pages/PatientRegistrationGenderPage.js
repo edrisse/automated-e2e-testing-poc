@@ -16,10 +16,6 @@ class PatientRegistrationGenderPage {
         nextStepButton.click();
         return new PatientRegistrationAgePage();
     }
-
-    selectMale() {
-        this.genderMaleOption.click();
-    }
 }
 
 module.exports = PatientRegistrationGenderPage;

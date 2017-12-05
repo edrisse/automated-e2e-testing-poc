@@ -20,22 +20,6 @@ class PatientRegistrationAddressPage {
         return new PatientRegistrationOtherPage();
     }
 
-    setLocality(locality) {
-        this.locality.sendKeys(locality);
-    }
-
-    setDistrict(district) {
-        this.district.sendKeys(district);
-    }
-
-    setProvince(province) {
-        this.province.sendKeys(province);
-    }
-
-    setCountry(country) {
-        this.country.sendKeys(country);
-    }
-
 }
 
 module.exports = PatientRegistrationAddressPage;

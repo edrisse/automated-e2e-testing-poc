@@ -21,9 +21,6 @@ class PatientSearchPage {
         return element.all(by.css('.patient-identifier'));
     }
 
-    search(query) {
-        this.searchField.sendKeys(query);
-    }
 }
 
 module.exports = PatientSearchPage;

@@ -17,15 +17,6 @@ class PatientRegistrationOtherPage {
         return new PatientRegistrationConfirmationPage();
     }
 
-    setPhone1(phone) {
-        this.phone1.sendKeys(phone);
-
-    }
-
-    setProvenience(provenience) {
-        this.provenience.sendKeys(provenience);
-    }
-
 
 }
 
