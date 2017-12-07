@@ -17,6 +17,19 @@ class PatientSearchPage {
         return new PatientRegistrationIdentifierPage();
     }
 
+    /**
+     * Finds a patient by identifier and navigates to the next page (usually dashboard).
+     * This method is only necessary because when you call sendKeys with the full a patient identifier string the app
+     * interprets this as a barcode scan.
+     *
+     * @param identifier The patient identifier to search for
+     */
+    searchByIdentifier(identifier) {
+        this.searchField.sendKeys(identifier);
+        browser.sleep(2000); // wait for spinner
+        return this.afterSearch();
+    }
+
     getPatientIdentifiers() {
         return element.all(by.css('.patient-identifier'));
     }
