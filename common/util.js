@@ -21,10 +21,13 @@ function createPatient(patient) {
     genderPage.genderMaleOption.click();
 
     const agePage = genderPage.visitNextStep();
-    agePage.birthDateField.sendKeys(patient.birthdate);
-    agePage.yearsField.sendKeys(patient.years);
-    agePage.monthsField.sendKeys(patient.months);
-    agePage.daysField.sendKeys(patient.days);
+    if (patient.birthdate) {
+        agePage.setBirthdate(patient.birthdate);
+    } else {
+        agePage.yearsField.sendKeys(patient.years);
+        agePage.monthsField.sendKeys(patient.months);
+        agePage.daysField.sendKeys(patient.days);
+    }
 
     const addressPage = agePage.visitNextStep();
     addressPage.locality.sendKeys(patient.locality);
