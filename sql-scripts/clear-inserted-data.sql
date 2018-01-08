@@ -1,3 +1,4 @@
+delete from address_hierarchy_address_to_entry_map where address_hierarchy_address_to_entry_map.address_id = (select address_id from person_address where person_address.person_id = (select max(person_id) from person));
 delete from person_address where person_address.person_id = (select max(person_id) from person);
 delete from person_attribute where person_attribute.person_id = (select max(person_id) from person);
 delete from patient_identifier where patient_identifier.patient_id = (select max(person_id) from person);
