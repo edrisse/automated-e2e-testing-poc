@@ -8,7 +8,7 @@ class PatientSearchPage {
 
     constructor() {
         this.newPatientButton = element(by.id('new-patient'));
-        this.searchField = element(by.model('searchText'));
+        this.searchField = element(by.model('vm.searchText'));
     }
 
     visitNewPatient() {
