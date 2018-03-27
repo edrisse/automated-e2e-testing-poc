@@ -1,0 +1,19 @@
+{
+  "name": "automated-e2e-testing-poc",
+  "version": "1.0.0",
+  "description": "End-to-end testing for the eSaude emr point of care",
+  "scripts": {
+    "test": "protractor conf.js",
+    "test-headless": "protractor headlessConf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esaude/automated-e2e-testing-poc.git"
+  },
+  "author": "eSaude developers",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/esaude/automated-e2e-testing-poc/issues"
+  },
+  "homepage": "https://github.com/esaude/automated-e2e-testing-poc#readme"
+}

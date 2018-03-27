@@ -1,7 +1,7 @@
 exports.config = {
     framework: 'jasmine',
     seleniumAddress: 'http://localhost:4444/wd/hub',
-    specs: ['home/specs/login-spec.js', 'registration/specs/new-patient-spec.js'],
+    specs: ['home/specs/login.spec.js', 'registration/specs/newPatient.spec.js'],
     onPrepare: function() {
         //browser.manage().window().setSize(1600, 1000);
     },
