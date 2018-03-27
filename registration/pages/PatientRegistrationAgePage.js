@@ -7,10 +7,10 @@ const PatientRegistrationAddressPage = require('./PatientRegistrationAddressPage
 class PatientRegistrationAgePage {
 
     constructor() {
-        this.birthDateField = element(by.model('patientCommon.patient.birthdate')).sendKeys('1973-10-07');
-        this.yearsField = element(by.id('patientYears')).sendKeys('40');
-        this.monthsField = element(by.id('patientMonths')).sendKeys('10');
-        this.daysField = element(by.id('patientDays')).sendKeys('29');
+        this.birthDateField = element(by.model('patientCommon.patient.birthdate'));
+        this.yearsField = element(by.id('patientYears'));
+        this.monthsField = element(by.id('patientMonths'));
+        this.daysField = element(by.id('patientDays'));
     }
 
     visitNextStep() {
@@ -18,6 +18,17 @@ class PatientRegistrationAgePage {
         browser.wait(protractor.ExpectedConditions.elementToBeClickable(nextStepButton), 10000, 'age next-step must become clickable');
         nextStepButton.click();
         return new PatientRegistrationAddressPage();
+    }
+
+    /**
+     * Sets the patient birthdate.
+     * This method is necessary because the first sendKeys causes the input to lose focus because of the datepicker.
+     *
+     * @param birthdate The patient birthdate
+     */
+    setBirthdate(birthdate) {
+        this.birthDateField.sendKeys(birthdate);
+        this.birthDateField.sendKeys(birthdate);
     }
 }
 

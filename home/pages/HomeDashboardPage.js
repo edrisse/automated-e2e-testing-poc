@@ -9,10 +9,10 @@ class HomeDashboardPage {
     }
 
     visitRegistration() {
-        browser.wait(protractor.ExpectedConditions.elementToBeClickable(this.registrationModuleButton), 10000);
+        browser.wait(protractor.ExpectedConditions.elementToBeClickable(this.registrationModuleButton), 10000, 'registration module button must become clickable');
         browser.sleep(2000);
         this.registrationModuleButton.click();
-        return new PatientSearchPage();
+        return new RegistrationPatientSearchPage();
     }
 
     homeLinkIsPresent() {
@@ -22,5 +22,5 @@ class HomeDashboardPage {
 
 module.exports = HomeDashboardPage;
 
-// Require here beacuse of circular dependency
-const PatientSearchPage = require('../../common/PatientSearchPage');
+// Require here because of circular dependency
+const RegistrationPatientSearchPage = require('../../registration/pages/RegistrationPatientSearchPage');
